@@ -1,0 +1,42 @@
+{
+	"info": {
+		"_postman_id": "0456e0df-6ccb-4848-8a4e-3c31ed927387",
+		"name": "Medico Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "obtener medicos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"No genera ningun error  en el Get All de medicos\"]=responseCode.code===200;\r",
+							"var data =JSON.parse(responseBody);\r",
+							"tests[\"El arreglo de los medicos no es vacio \"]=data.length>0;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{ip}}:{{puerto}}/api/medicos",
+					"protocol": "http",
+					"host": [
+						"{{ip}}"
+					],
+					"port": "{{puerto}}",
+					"path": [
+						"api",
+						"medicos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
